@@ -1,7 +1,5 @@
 package com.sirius.security.util;
 
-import jdk.nashorn.internal.runtime.regexp.joni.exception.InternalException;
-
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
@@ -21,7 +19,7 @@ public class SecurityUtil {
             byte[] encrypted = cipher.doFinal(password.getBytes());
             return Base64.getEncoder().encodeToString(encrypted);
         } catch (Exception e) {
-            throw new InternalException("Failed to create new user");
+            throw new RuntimeException("Failed to create new user");
         }
     }
 }
